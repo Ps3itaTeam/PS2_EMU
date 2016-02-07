@@ -13,7 +13,7 @@
 
 #define AUTH_OFFSET		0x90018
 
-#elif defined(FIRMWARE_4_76)
+#elif defined(FIRMWARE_4_78)
 
 #define AUTH_OFFSET		0x90120
 
