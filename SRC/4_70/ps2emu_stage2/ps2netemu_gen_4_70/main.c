@@ -20,7 +20,7 @@
 #define ADDITIONAL_CODE_SIZE		0x46B0 //
 #define ADDITIONAL_DATA_SIZE		0x1000
 
-#define CODE_SECTION_ADDR		0x28F800 //
+#define CODE_SECTION_ADDR		0x3800 //
 #define DATA_SECTION_ADDR		0xB20A00 //
 #define PAYLOAD_ADDR		    0x3940 // Thanks @habib and @haxxxen for his awesome research!! now we have a lot more space in netemu
 //#define PAYLOAD_ADDR		(CODE_SECTION_ADDR+0x78+8) /* CODE_SECTION_ADDR + CODE_SECTION_SIZE + 8 to align to 0x10 */
@@ -482,7 +482,7 @@ static void patch_self(char *src, char *dst, uint32_t sh_offset, uint32_t code_a
 		}
 		else if (swap64(shdr->sh_addr) == code_address)
 		{
-			shdr->sh_size = swap64(swap64(shdr->sh_size));//+ADDITIONAL_CODE_SIZE);
+			shdr->sh_size = swap64(swap64(shdr->sh_size)+ADDITIONAL_CODE_SIZE);
 			patches++;
 		}
 		
